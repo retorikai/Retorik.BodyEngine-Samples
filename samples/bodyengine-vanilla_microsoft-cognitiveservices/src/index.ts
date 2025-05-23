@@ -7,6 +7,10 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
 
+
+const speechKey = "YOUR_SUBSCRIPTION_KEY"; // Replace with your Azure subscription key
+const serviceRegion = "francecentral"; // e.g., "eastus"
+
 let camera: THREE.PerspectiveCamera;
 let orbitControls: OrbitControls;
 let scene: THREE.Scene;
@@ -143,8 +147,6 @@ const setupCharacter = async () => {
 }
 
 const setupAzureSpeech = () => {
-    const speechKey = "YOUR_SUBSCRIPTION_KEY"; // Replace with your Azure subscription key
-    const serviceRegion = "francecentral"; // e.g., "eastus"
 
     const speechConfig = sdk.SpeechConfig.fromSubscription(speechKey, serviceRegion);
     speechConfig.speechSynthesisVoiceName = "fr-FR-DeniseNeural"; // Optional: Choose a specific voice

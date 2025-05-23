@@ -9,6 +9,19 @@ This sample demonstrates how to use Retorik.BodyEngine-three with Microsoft Azur
 ```shell
 npm install
 ```
+## Run the sample
+
+```shell
+npm run start
+```
+
+Add your Microsoft Azure Cognitive Services subscription key in the code at `src/index.ts`:
+```javascript
+const subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+```
+
+Finally, open your browser and navigate to [https://localhost:5000/](https://localhost:5000/).
+
 
 ## Configuration
 
