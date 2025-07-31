@@ -3,6 +3,7 @@ import {
     Character,
     CreationTool
 } from '@davi-ai/vanilla-bodyengine-three';
+import { CharacterState } from '@davi-ai/bodyengine-three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
@@ -123,6 +124,7 @@ const setupCharacter = async () => {
         animationsUrl: "https://cdn.retorik.ai/bodyengine-three/animations/cc4/female/standingglb/",
         autoLookAt: true,
         license: "1c4416bf44696314",
+    animationOverride: false,
     });
     await character.init();
 
@@ -196,6 +198,7 @@ const setupAzureSpeech = () => {
             const startTime = audioContext.currentTime;
             console.log(`🟢 Audio playback started at ${startTime}`);
             lipSyncManager.start();
+            character.characterStore.getState().setCharacterState(CharacterState.speaking)
 
             for (let v of visemeArray) {
                 lipSyncManager.PlayVisemeAsync(v.name, v.time);
@@ -208,6 +211,7 @@ const setupAzureSpeech = () => {
                 visemeArray = [];
                 audioChunks = [];
                 lipSyncManager.stop();
+                character.characterStore.getState().setCharacterState(CharacterState.idle)
             };
 
             source.start();
@@ -291,6 +295,7 @@ const animate = () => {
     requestAnimationFrame(animate);
     orbitControls.update();
     renderer.render(scene, camera);
+    character.update();
 };
 
 const onWindowResize = () => {

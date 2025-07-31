@@ -1,0 +1,60 @@
+{
+  "name": "scalian",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "dependencies": {
+    "@davi-ai/bodyengine-three": "0.0.5",
+    "@davi-ai/vanilla-bodyengine-three": "^0.0.5-alpha.20250731.2",
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "^9.3.0",
+    "@types/three": "^0.165.0",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
+    "react-dom": "^19.1.1",
+    "three": "^0.173.0",
+    "typescript": "^5.3.2",
+    "vite": "^5.4.11"
+  },
+  "scripts": {
+    "start": "vite --host",
+    "build": "vite build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "overrides": {
+    "typescript": "^5.3.2"
+  }
+}

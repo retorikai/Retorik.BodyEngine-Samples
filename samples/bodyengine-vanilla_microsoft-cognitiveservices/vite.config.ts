@@ -6,5 +6,9 @@ export default defineConfig({
     port: 5000,
   },
   base: './',
-  plugins: [ basicSsl()],
+  optimizeDeps: {
+    exclude: [
+      '@davi-ai/bodyengine-three']
+  },
+  plugins: [basicSsl()],
 })
