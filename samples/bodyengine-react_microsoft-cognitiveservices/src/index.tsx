@@ -11,7 +11,7 @@ import { CharacterState } from "@davi-ai/bodyengine-three";
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
 import { Environment } from '@react-three/drei';
 
-const speechKey = "28b43016779a47d7bbd6959b9516f1ef"; // Replace with your Azure subscription key
+const speechKey = "YOUR_SUBSCRIPTION_KEY"; // Replace with your Azure subscription key
 const serviceRegion = "francecentral"; // e.g., "eastus"
 
 const visemeCodes = new Map<number, string>([
